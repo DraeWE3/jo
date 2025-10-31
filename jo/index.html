@@ -111,7 +111,7 @@
         .hero {
             max-width: 928px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 60px 20px;
             text-align: center;
         }
 
@@ -141,7 +141,7 @@
             position: absolute;
             top: 55px;
             z-index: 2;
-            animation: scaleIn 2s 0.4s ease-out backwards;
+            animation: scaleIn 1s 0.2s ease-out backwards;
         }
 
         .hero-image img {
@@ -158,7 +158,6 @@
             letter-spacing: -0.02em;
             position: absolute;
             top: 0;
-            animation: slideInDown 1s 0.2s ease-out backwards;
         }
 
         .hero-name-bottom {
@@ -170,7 +169,6 @@
             position: absolute;
             top: 70%;
             transform: translateY(-50%);
-            animation: fadeIn 1s 0.6s ease-out backwards;
         }
 
         .hero-star {
@@ -233,7 +231,7 @@
         .section {
             max-width: 928px;
             margin: 0 auto;
-            padding: 150px 20px;
+            padding: 70px 20px;
         }
 
         .section-header {
@@ -287,7 +285,7 @@
         }
 
         .about-text {
-            font-size: 18px;
+            font-size: 23px;
             line-height: 1.7;
             color: var(--text-gray);
         }
@@ -305,6 +303,8 @@
         }
 
         .cards-grid {
+            position: relative;
+            height: 1000px;
             display: flex;
             flex-direction: column;
             gap: 32px;
@@ -317,11 +317,25 @@
             box-shadow: 0 0 30px 10px rgba(18, 18, 18, 0.2);
             display: flex;
             gap: 10px;
+            position: sticky;
+            transition: transform 0.3s ease;
         }
 
-        .card-content {
-            flex: 1;
+        .card:nth-child(1) {
+            top: 120px;
+            z-index: 1;
         }
+
+        .card:nth-child(2) {
+            top: 170px;
+            z-index: 2;
+        }
+
+        .card:nth-child(3) {
+            top: 220px;
+            z-index: 3;
+        }
+
 
         .card h3 {
             font-size: 26px;
@@ -435,7 +449,6 @@
             width: 100%;
             overflow: hidden;
             padding: 20px 0;
-                        transform: rotate(-1deg);
         }
 
         .scrolling-text {
@@ -483,6 +496,37 @@
             gap: 100px;
             align-items: center;
             padding: 40px 0;
+        }
+
+        .writing-item a{
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+             transition: color .35s ease, gap .35s ease;
+        }
+
+        .contact-section{
+            padding-bottom: 10% !important;
+        }
+
+        .writing-item-span{
+            width: 0px;
+            height: 10px;
+            opacity: 0;
+            background-color: var(--blue);
+             transition: width .35s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        .writing-item a:hover .writing-item-span{
+           width: 10px;
+           opacity: 1;
+        }
+
+        .writing-item a:hover{
+            gap: 1.2rem;
+            color: var(--blue);
         }
 
         .writing-title {
@@ -583,12 +627,13 @@
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(224, 241, 31, 0.3);
+            background-color: #454545;
+            color: #e3e3e3;
         }
 
         /* Footer */
         .footer { 
-          
+            position: relative;
             bottom: 0;
             height: 300px;
             background: var(--bg-dark);
@@ -599,19 +644,23 @@
         }
 
         .footer-scroll {
+            position: absolute;
             width: 100%;
             padding: 75px 0;
             overflow: hidden;
+            bottom: -4rem;
+            padding-bottom: 0%;
+
         }
 
         .footer-text {
             display: flex;
             gap: 60px;
-            animation: scroll 30s linear infinite;
+            animation: scroll 10s linear infinite;
         }
 
         .footer-item {
-            font-size: 200px;
+            font-size: 250px;
             font-weight: 900;
             color: var(--primary);
             line-height: 1.1;
@@ -745,7 +794,7 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.06);
       border: none;
       font-size: 26px;
       cursor: pointer;
@@ -754,13 +803,14 @@
       height: 45px;
       display: flex;
       justify-content: center;
+      color: #fff !important;
       align-items: center;
       transition: background 0.3s;
       z-index: 2;
     }
 
     .control:hover {
-      background: rgba(255, 255, 255, 0.9);
+            color: #ffffff7f !important;
     }
 
     .prev {
@@ -848,6 +898,22 @@
     .nav-menu.active {
   display: flex;
 }
+
+ /* This makes each character animate */
+        .char {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideIn 0.6s forwards;
+        }
+
+        /* The actual animation */
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -866,7 +932,6 @@
       <a href="photography.html">Photography</a>
       <a href="mentorship.html">Mentorship</a>
       <a href="writing.html">Writing</a>
-      <a href="contact.html">Contact</a>
     </div>
   </div>
 </nav>
@@ -883,8 +948,8 @@
             <div class="hero-image">
                 <img src="https://framerusercontent.com/images/oxZdnYIbpiMwVyY6y6yItzj7gw.png" alt="John Ojetunde">
             </div>
-            <h1 class="hero-name-top">JOHN</h1>
-            <h1 class="hero-name-bottom">OJETUNDE</h1>
+<h1 class="hero-name-top heading" id="heading1">JOHN</h1>
+<h1 class="hero-name-bottom heading" id="heading2">OJETUNDE</h1>
         </div>
 
         <div class="hero-star">
@@ -1089,7 +1154,7 @@
         </a>
 
         <div class="writing-item">
-            <p class="writing-title">[commit] consistency → reliability</p>
+           <a href="blog1.html"> <span class="writing-item-span"></span> <p class="writing-title">[commit] consistency → reliability</p></a>
             <p class="writing-date">Aug 17, 2025</p>
             <p class="writing-platform">SUBSTACK</p>
         </div>
@@ -1099,7 +1164,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
+    <section id="contact" class="contact-section section">
         <a href="#contact" class="section-header">
             <h2 class="section-title">CONTACT</h2>
             <div class="section-lines">
@@ -1190,6 +1255,8 @@
             //     body: JSON.stringify(data)
             // });
         }
+
+        
 
         // Intersection Observer for scroll animations
         const observerOptions = {
@@ -1378,6 +1445,46 @@ document.getElementById('form')
       alert(JSON.stringify(err));
     });
 });</script>
+  <script>
+// Split text into individual characters
+function splitText(element) {
+    const text = element.textContent;
+    element.textContent = '';
+    
+    text.split('').forEach((char, index) => {
+        const span = document.createElement('span');
+        span.className = 'char';
+        span.textContent = char;
+        // Delay each character slightly
+        span.style.animationDelay = `${index * 0.1}s`;
+        element.appendChild(span);
+    });
+}
+
+// Split text into individual words
+function splitWords(element) {
+    const text = element.textContent.trim();
+    element.textContent = '';
+    
+    text.split(' ').forEach((word, index) => {
+        const span = document.createElement('span');
+        span.className = 'char';
+        span.textContent = word;
+        span.style.animationDelay = `${index * 0.08}s`;
+        element.appendChild(span);
+        
+        // Add space after each word except the last
+        if (index < text.split(' ').length - 1) {
+            element.appendChild(document.createTextNode(' '));
+        }
+    });
+}
+
+// Run the animations
+splitText(document.getElementById('heading1'));
+splitText(document.getElementById('heading2'));
+splitWords(document.querySelector('.hero-intro'));
+    </script>
 
 </body>
 </html>
