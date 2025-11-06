@@ -59,59 +59,79 @@
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .hamburger {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            padding: 10px;
-            transition: all 0.3s;
-        }
+          .hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.3s ease;
+  transform-origin: center; 
+}
 
-        .hamburger:hover span {
-            background: var(--primary);
-        }
+.hamburger span {
+  width: 34px;
+  height: 2.5px;
+  background: var(--text-light, #fff); /* fallback color */
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
 
-        .hamburger span {
-            width: 26px;
-            height: 2px;
-            background: var(--text-light);
-            border-radius: 10px;
-            transition: all 0.3s;
-        }
+.hamburger span:nth-child(2){
+  width: 20px;
+}
 
-        .nav-logo {
-            width: 60px;
-            height: 50px;
-        }
+.hamburger span:nth-child(3){
+  width: 25px;
+}
 
-        .nav-logo svg {
-            width: 100%;
-            height: 100%;
-        }
 
-        /* Hero Section */
-        .hero {
-            padding: 140px 40px 80px;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
 
-        .hero-title {
-            font-size: 15vw;
-            font-weight: 900;
-            line-height: 1;
-            color: var(--text-blue);
-            letter-spacing: -0.02em;
-            margin-bottom: 40px;
-            animation: fadeInUp 1s ease-out;
+
+/* hover animation */
+
+.hamburger:hover .ham1  {
+   background: #5b5b5b;
+   width: 25px;
+}
+
+.hamburger:hover .ham2  {
+   background: #5b5b5b;
+   width: 34px;
+}
+
+.hamburger:hover .ham3  {
+   background: #5b5b5b;
+   width: 18px;
+}
+
+
+
+/* X animation */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+  width: 34px; /* match longest bar */
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+  width: 34px; /* match longest bar for symmetrical X */
+}
+
+        @media (min-width: 1400px) {
+            .hero-title {
+                font-size: 210px;
+            }
         }
 
         .hero-star {
@@ -394,7 +414,7 @@
       color: #fff;
       font-weight: 800;
       text-transform: uppercase;
-      font-size: 25px;
+      font-size: 32px;
       letter-spacing: 0.1px;
       margin-bottom: 0.5rem;
     }
@@ -719,6 +739,12 @@
             box-shadow: 0 5px 20px rgba(224, 241, 31, 0.3);
         }
 
+               .section {
+            max-width: 928px;
+            margin: 0 auto;
+            padding: 70px 18px;
+        }
+
 
           .container-blog {
             max-width: 900px;
@@ -884,9 +910,9 @@
    <nav class="nav-wrapper">
   <div class="nav-container">
     <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+          <span class="ham1"></span>
+      <span class="ham2"></span>
+      <span class="ham3"></span>
     </div>
 
     <div class="nav-menu">
