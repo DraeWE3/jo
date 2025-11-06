@@ -59,7 +59,7 @@
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -96,16 +96,22 @@
             height: 100%;
         }
 
+        .linked{
+            color: #fff;
+            text-decoration: none;
+        }
+
         /* Hero Section */
         .hero {
             padding: 140px 40px 80px;
             text-align: center;
             max-width: 1200px;
             margin: 0 auto;
+            padding-top: 15%;
         }
 
         .hero-title {
-            font-size: 15vw;
+            font-size: 200px;
             font-weight: 900;
             line-height: 1;
             color: var(--text-blue);
@@ -190,6 +196,14 @@
             margin-bottom: 40px;
             animation: fadeIn 1s 0.5s ease-out backwards;
         }
+
+        .section {
+            max-width: 928px;
+            margin: 0 auto;
+            padding: 70px 18px;
+            padding-bottom: 0;
+        }
+
 
 
        
@@ -389,7 +403,7 @@
       color: #fff;
       font-weight: 800;
       text-transform: uppercase;
-      font-size: 25px;
+      font-size: 32px;
       letter-spacing: 0.1px;
       margin-bottom: 0.5rem;
     }
@@ -398,17 +412,18 @@
   display: flex;
 }
 
-   .hamburger {
+     .hamburger {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
   cursor: pointer;
   padding: 10px;
   transition: all 0.3s ease;
+  transform-origin: center; 
 }
 
 .hamburger span {
-  width: 26px;
+  width: 34px;
   height: 2.5px;
   background: var(--text-light, #fff); /* fallback color */
   border-radius: 10px;
@@ -416,27 +431,48 @@
 }
 
 .hamburger span:nth-child(2){
-  width: 16px;
+  width: 20px;
 }
 
 .hamburger span:nth-child(3){
-  width: 19px;
+  width: 25px;
 }
 
-/* Animate to "X" when active */
+
+
+
+/* hover animation */
+
+.hamburger:hover .ham1  {
+   background: #5b5b5b;
+   width: 25px;
+}
+
+.hamburger:hover .ham2  {
+   background: #5b5b5b;
+   width: 34px;
+}
+
+.hamburger:hover .ham3  {
+   background: #5b5b5b;
+   width: 18px;
+}
+
+
+
+/* X animation */
 .hamburger.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-  width: 26px;
+  transform: translateY(9px) rotate(45deg);
+  width: 34px; /* match longest bar */
 }
 
 .hamburger.active span:nth-child(2) {
   opacity: 0;
-  width: 26px;
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-  width: 26px;
+  transform: translateY(-9px) rotate(-45deg);
+  width: 34px; /* match longest bar for symmetrical X */
 }
 
 @media (max-width: 650px) {
@@ -469,7 +505,7 @@
 
       /* Footer */
         .footer { 
-          
+           position: relative;
             bottom: 0;
             height: 300px;
             background: var(--bg-dark);
@@ -481,8 +517,10 @@
 
         .footer-scroll {
             width: 100%;
-            padding: 75px 0;
+            padding: 0;
             overflow: hidden;
+            position: absolute;
+            bottom: -4rem;
         }
 
         .footer-text {
@@ -575,9 +613,6 @@
             100% { transform: translateX(-50%); }
         }
 
-        .contact-con{
-          padding: 10% 14%;
-        }
 
             /* Contact */
         .contact-layout {
@@ -593,14 +628,14 @@
         }
 
         .contact-intro {
-            font-size: 28px;
+            font-size: 24px;
             line-height: 1.2;
         }
-
+/* 
          .contact-intro-tiny {
             font-size: 20px;
             line-height: 1.2;
-        }
+        } */
 
         .contact-right {
             flex: 1;
@@ -744,32 +779,35 @@
         }
 
         .image-con{
-           width: 100%;
-           height: 30rem;
+           width: 85%;
+           height: 33rem;
             max-width: 450px;
             position: relative;
         }
 
         .image-con div{
-           width: 80%;
+           width: 90%;
            position: absolute;
            bottom: 0;
            right: 0;
            height: 80%;
            background-color: var(--blue);
-           border-radius: 1rem;
+           border-radius: 0.6rem;
            z-index: 0;
+           display: flex;
+           justify-content: center;
+           align-items: end;
         }
 
         .profile-image {
           position: absolute;
           top: 0;
           left: 0;
-            width: 80%;
-            height: 90%;
+            width: 90%;
+            height: 85%;
             object-fit: cover;
              z-index: 1;
-            border-radius: 20px;
+            border-radius: 0.6rem;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
@@ -786,9 +824,11 @@
 
         .social-links {
             display: flex;
-            gap: 15px;
+            gap: 6px;
             margin-top: 30px;
             justify-content: flex-start;
+            margin-right: 6%;
+            margin-bottom: 5%;
         }
 
         .social-btn {
@@ -797,7 +837,7 @@
             justify-content: center;
             width: 50px;
             height: 50px;
-            background: #4a9eff;
+            background: transparent;
             border-radius: 12px;
             color: #333;
             text-decoration: none;
@@ -806,7 +846,6 @@
         }
 
         .social-btn:hover {
-            background: #357ac9;
             transform: translateY(-3px);
         }
 
@@ -823,8 +862,9 @@
         .text-content p {
             font-size: 16px;
             margin-bottom: 20px;
-            color: #b5b5b5;
-            line-height: 1.8;
+            color: #9b9b9b;
+            line-height: 1.5;
+            font-weight: 500;
         }
 
         @media (max-width: 1024px) {
@@ -931,9 +971,9 @@
    <nav class="nav-wrapper">
   <div class="nav-container">
     <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span class="ham1"></span>
+      <span class="ham2"></span>
+      <span class="ham3"></span>
     </div>
 
     <div class="nav-menu">
@@ -942,7 +982,6 @@
       <a href="photography.html">Photography</a>
       <a href="mentorship.html">Mentorship</a>
       <a href="writing.html">Writing</a>
-      <a href="contact.html">Contact</a>
     </div>
   </div>
 </nav>
@@ -969,10 +1008,8 @@
             <div class="profile-container">
                <div class="image-con">
                  <img src="https://framerusercontent.com/images/VSw3zswugA3lJ65bcOqXsAvA.webp?width=648&height=1024" alt="Profile" class="profile-image">
-                 <div></div>
-               </div>
-                <!-- <div class="signature">Ola</div> -->
-                <div class="social-links">
+                 <div>
+                     <div class="social-links">
                     <a target="_blank" href="https://www.instagram.com/oluphotos?igsh=MXEwM3RxNmcwNjlhcA==" class="social-btn" aria-label="Instagram">
                        <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 0 24 24">
 	<rect width="24" height="24" fill="none" />
@@ -998,10 +1035,13 @@
                         <h2>SK</h2>
                     </a>
                 </div>
+                 </div>
+                  
+               </div>
             </div>
 
             <div class="text-content">
-                <p>Programming is an art as well as a science. This principle guides everything I do—from designing systems to leading teams. Over the past decade, I've built technology that not only works at scale but works elegantly, solving complex problems with clarity and purpose.</p>
+                <p><strong>Programming is an art as well as a science.</strong> This principle guides everything I do—from designing systems to leading teams. Over the past decade, I've built technology that not only works at scale but works elegantly, solving complex problems with clarity and purpose.</p>
 
                 <p>My journey in tech has taken me across continents, collaborating with teams in Africa, Europe, and the US. Along the way, I've grown from writing code to mentoring engineers, leading product teams, and launching products that impact thousands of users.</p>
 
@@ -1029,7 +1069,7 @@
         <div class="contact-layout">
             <div class="contact-left">
                 <p class="contact-intro contact-intro-tiny ">
-                   I’m always looking to engage with others in the tech community, whether it’s through mentorship, collaboration, or sharing knowledge. You can aslo connect with me on <strong>LinkedIn</strong>
+                   I’m always looking to engage with others in the tech community, whether it’s through mentorship, collaboration, or sharing knowledge. You can aslo connect with me on <strong><a href="https://uk.linkedin.com/in/johnojetunde" class="linked">LinkedIn</a></strong>
                 </p>
             </div>
 
