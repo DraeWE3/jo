@@ -59,7 +59,7 @@
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -102,9 +102,10 @@
             text-align: center;
             max-width: 1200px;
             margin: 0 auto;
+            padding-top: 15%;
         }
 
-        .hero-title {
+       .hero-title {
             font-size: 15vw;
             font-weight: 900;
             line-height: 1;
@@ -112,6 +113,12 @@
             letter-spacing: -0.02em;
             margin-bottom: 40px;
             animation: fadeInUp 1s ease-out;
+        }
+
+        @media (min-width: 1400px) {
+            .hero-title {
+                font-size: 210px;
+            }
         }
 
         .hero-star {
@@ -353,6 +360,7 @@
   opacity: 0;
   transform: translateX(-20px);
   transition: all 0.4s ease-in-out;
+  display: none !important;
 }
 
 /* On hover, fade + slide in */
@@ -384,7 +392,7 @@
       color: #fff;
       font-weight: 800;
       text-transform: uppercase;
-      font-size: 25px;
+      font-size: 32px;
       letter-spacing: 0.1px;
       margin-bottom: 0.5rem;
     }
@@ -396,14 +404,15 @@
    .hamburger {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
   cursor: pointer;
   padding: 10px;
   transition: all 0.3s ease;
+  transform-origin: center; 
 }
 
 .hamburger span {
-  width: 26px;
+  width: 34px;
   height: 2.5px;
   background: var(--text-light, #fff); /* fallback color */
   border-radius: 10px;
@@ -411,27 +420,48 @@
 }
 
 .hamburger span:nth-child(2){
-  width: 16px;
+  width: 20px;
 }
 
 .hamburger span:nth-child(3){
-  width: 19px;
+  width: 25px;
 }
 
-/* Animate to "X" when active */
+
+
+
+/* hover animation */
+
+.hamburger:hover .ham1  {
+   background: #5b5b5b;
+   width: 25px;
+}
+
+.hamburger:hover .ham2  {
+   background: #5b5b5b;
+   width: 34px;
+}
+
+.hamburger:hover .ham3  {
+   background: #5b5b5b;
+   width: 18px;
+}
+
+
+
+/* X animation */
 .hamburger.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-  width: 26px;
+  transform: translateY(9px) rotate(45deg);
+  width: 34px; /* match longest bar */
 }
 
 .hamburger.active span:nth-child(2) {
   opacity: 0;
-  width: 26px;
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-  width: 26px;
+  transform: translateY(-9px) rotate(-45deg);
+  width: 34px; /* match longest bar for symmetrical X */
 }
 
 @media (max-width: 650px) {
@@ -463,8 +493,8 @@
 
 
       /* Footer */
-        .footer { 
-          
+            .footer { 
+           position: relative;
             bottom: 0;
             height: 300px;
             background: var(--bg-dark);
@@ -476,9 +506,12 @@
 
         .footer-scroll {
             width: 100%;
-            padding: 75px 0;
+            padding: 0;
             overflow: hidden;
+            position: absolute;
+            bottom: -4rem;
         }
+
 
         .footer-text {
             display: flex;
@@ -519,9 +552,10 @@
 
         .writing-item a{
             text-decoration: none;
-             font-size: 28px;
+             font-size: 22px;
             font-weight: 400;
             color: #fff;
+            font-weight: 600;
         }
 
         .writing-item a:hover{
@@ -534,7 +568,7 @@
         }
 
         .writing-platform {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
             color: var(--primary);
         }
@@ -617,6 +651,7 @@
 
         .contact-con{
           padding: 10% 14%;
+          padding-bottom: 0 !important;
         }
 
             /* Contact */
@@ -685,10 +720,57 @@
             line-height: 1.7;
         }
 
+               .section {
+            max-width: 928px;
+            margin: 0 auto;
+            padding: 70px 18px;
+        }
+
         .form-input::placeholder,
         .form-textarea::placeholder {
             color: var(--text-gray);
         }
+
+          .writing-item {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        .writing-item a{
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+             transition: color .35s ease, gap .35s ease;
+        }
+
+        .contact-section{
+            padding-bottom: 10% !important;
+        }
+
+        .writing-item-span{
+            width: 0px;
+            height: 10px;
+            opacity: 0;
+            background-color: var(--blue);
+             transition: width .35s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        .writing-item a:hover .writing-item-span{
+           width: 10px;
+           opacity: 1;
+        }
+
+        .writing-item a:hover{
+            gap: 1.2rem;
+            color: var(--blue);
+        }
+
+        
 
         .submit-btn {
             width: 100%;
@@ -792,9 +874,9 @@
    <nav class="nav-wrapper">
   <div class="nav-container">
     <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span class="ham1"></span>
+      <span class="ham2"></span>
+      <span class="ham3"></span>
     </div>
 
     <div class="nav-menu">
@@ -803,7 +885,6 @@
       <a href="photography.html">Photography</a>
       <a href="mentorship.html">Mentorship</a>
       <a href="writing.html">Writing</a>
-      <a href="contact.html">Contact</a>
     </div>
   </div>
 </nav>
@@ -822,9 +903,8 @@
       <section id="writing" class="section">
         
 
-        <div class="writing-item">
-            <a href="./blog1.html"> <p class="writing-title">[commit] consistency → reliability</p></a>
-            <!-- <p class="writing-title">commit consistencty - reliability</p> -->
+  <div class="writing-item">
+           <a href="blog1.html"> <span class="writing-item-span"></span> <p class="writing-title">[commit] consistency → reliability</p></a>
             <p class="writing-date">Aug 17, 2025</p>
             <p class="writing-platform">SUBSTACK</p>
         </div>
