@@ -79,23 +79,55 @@
        .hamburger {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
   cursor: pointer;
   padding: 10px;
   transition: all 0.3s ease;
+  transform-origin: center; 
 }
 
 .hamburger span {
-  width: 26px;
+  width: 34px;
   height: 2.5px;
   background: var(--text-light, #fff); /* fallback color */
   border-radius: 10px;
   transition: all 0.3s ease;
 }
 
-/* Animate to "X" when active */
+.hamburger span:nth-child(2){
+  width: 20px;
+}
+
+.hamburger span:nth-child(3){
+  width: 25px;
+}
+
+
+
+
+/* hover animation */
+
+.hamburger:hover .ham1  {
+   background: #5b5b5b;
+   width: 25px;
+}
+
+.hamburger:hover .ham2  {
+   background: #5b5b5b;
+   width: 34px;
+}
+
+.hamburger:hover .ham3  {
+   background: #5b5b5b;
+   width: 18px;
+}
+
+
+
+/* X animation */
 .hamburger.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(9px) rotate(45deg);
+  width: 34px; /* match longest bar */
 }
 
 .hamburger.active span:nth-child(2) {
@@ -103,8 +135,12 @@
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-9px) rotate(-45deg);
+  width: 34px; /* match longest bar for symmetrical X */
 }
+
+
+
 
 
         /* Hero Section */
@@ -112,6 +148,7 @@
             max-width: 928px;
             margin: 0 auto;
             padding: 60px 20px;
+            padding-top: 10%;
             text-align: center;
         }
 
@@ -139,7 +176,7 @@
             border-radius: 85px;
             overflow: hidden;
             position: absolute;
-            top: 55px;
+            top: 23%;
             z-index: 2;
             animation: scaleIn 1s 0.2s ease-out backwards;
         }
@@ -151,7 +188,7 @@
         }
 
         .hero-name-top {
-            font-size: 200px;
+            font-size: 230px;
             font-weight: 900;
             line-height: 1.1;
             color: var(--blue);
@@ -161,7 +198,7 @@
         }
 
         .hero-name-bottom {
-            font-size: 200px;
+            font-size: 230px;
             font-weight: 900;
             line-height: 1.1;
             color: var(--blue);
@@ -231,7 +268,7 @@
         .section {
             max-width: 928px;
             margin: 0 auto;
-            padding: 70px 20px;
+            padding: 70px 18px;
         }
 
         .section-header {
@@ -285,7 +322,7 @@
         }
 
         .about-text {
-            font-size: 23px;
+            font-size: 22px;
             line-height: 1.7;
             color: var(--text-gray);
         }
@@ -298,7 +335,7 @@
         }
 
         .about-description {
-            font-size: 18px;
+            font-size: 17px;
             line-height: 1.7;
         }
 
@@ -393,13 +430,13 @@
         }
 
         .timeline-meta {
-            font-size: 14px;
+            font-size: 16px;
             color: var(--text-gray);
             margin-bottom: 16px;
         }
 
         .timeline-description {
-            font-size: 18px;
+            font-size: 17px;
             line-height: 1.7;
         }
 
@@ -874,7 +911,7 @@
       height: fit-content;
       border-radius: 0.5rem;
       position: fixed;
-      top: 6%;
+      top: 10%;
       left: 10%;
       display: flex;
       flex-direction: column;
@@ -891,7 +928,7 @@
       color: #fff;
       font-weight: 800;
       text-transform: uppercase;
-      font-size: 25px;
+      font-size: 32px;
       letter-spacing: 0.1px;
     }
 
@@ -921,9 +958,9 @@
 <nav class="nav-wrapper">
   <div class="nav-container">
     <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span class="ham1"></span>
+      <span class="ham2"></span>
+      <span class="ham3"></span>
     </div>
 
     <div class="nav-menu">
@@ -1031,7 +1068,7 @@
             <div class="experience-left">
                 <div class="timeline-item">
                     <h3 class="timeline-title">Head of Engineering, Pos Channels</h3>
-                    <p class="timeline-meta">Moniepoint • 2019 - Present</p>
+                    <p class="timeline-meta">Moniepoint Inc. <br/> 2019 - Present</p>
                     <p class="timeline-description">
                         Leads the engineering organization behind Moniepoint's POS channels, building systems that power millions of daily transactions across Africa. Oversees distributed teams and ensures platform reliability, scalability, and innovation in payment infrastructure.
                     </p>
@@ -1041,7 +1078,7 @@
 
                 <div class="timeline-item">
                     <h3 class="timeline-title">Senior IT Consultant</h3>
-                    <p class="timeline-meta">Anchor • Mar 2022 - Dec 2022</p>
+                    <p class="timeline-meta">Anchor <br/> Mar 2022 - Dec 2022</p>
                     <p class="timeline-description">
                         Built critical fintech infrastructure, including a high-availability ledger system and idempotency libraries that improved reliability from 85% to 99%. Designed a sandbox environment that accelerated enterprise onboarding and testing.
                     </p>
@@ -1051,7 +1088,7 @@
             <div class="experience-right">
                 <div class="timeline-item">
                     <h3 class="timeline-title">Chief Technology Officer</h3>
-                    <p class="timeline-meta">Iddera • 2020 - Present</p>
+                    <p class="timeline-meta">Iddera <br/> 2020 - Present</p>
                     <p class="timeline-description">
                         Drove the product and engineering roadmap for a digital health startup. Designed the core user management and consultation systems, scaling to tens of thousands of users. Led engineering hiring, culture, and technical delivery while mentoring the next generation of developers.
                     </p>
@@ -1061,7 +1098,7 @@
 
                 <div class="timeline-item">
                     <h3 class="timeline-title">Senior Software Engineer</h3>
-                    <p class="timeline-meta">Yapily • 2021 - 2022</p>
+                    <p class="timeline-meta">Yapily <br/> 2021 - 2022</p>
                     <p class="timeline-description">
                         Worked on open banking integrations across Europe, designing scalable systems that powered secure financial data exchange. Built regression testing tools for continuous delivery and mentored engineers on system design and deployment practices.
                     </p>
