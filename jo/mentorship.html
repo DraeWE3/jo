@@ -75,7 +75,7 @@
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -118,17 +118,23 @@
             text-align: center;
             max-width: 1200px;
             margin: 0 auto;
+            padding-top: 15%;
         }
 
         .hero-title {
-            font-size: 14vw;
+            font-size: 15vw;
             font-weight: 900;
             line-height: 1;
             color: var(--text-blue);
             letter-spacing: -0.02em;
             margin-bottom: 40px;
             animation: fadeInUp 1s ease-out;
-            text-transform: uppercase;
+        }
+
+        @media (min-width: 1400px) {
+            .hero-title {
+                font-size: 210px;
+            }
         }
 
         .hero-star {
@@ -406,7 +412,7 @@
       color: #fff;
       font-weight: 800;
       text-transform: uppercase;
-      font-size: 25px;
+      font-size: 32px;
       letter-spacing: 0.1px;
       margin-bottom: 0.5rem;
     }
@@ -415,17 +421,18 @@
   display: flex;
 }
 
-   .hamburger {
+     .hamburger {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
   cursor: pointer;
   padding: 10px;
   transition: all 0.3s ease;
+  transform-origin: center; 
 }
 
 .hamburger span {
-  width: 26px;
+  width: 34px;
   height: 2.5px;
   background: var(--text-light, #fff); /* fallback color */
   border-radius: 10px;
@@ -433,29 +440,49 @@
 }
 
 .hamburger span:nth-child(2){
-  width: 16px;
+  width: 20px;
 }
 
 .hamburger span:nth-child(3){
-  width: 19px;
+  width: 25px;
 }
 
-/* Animate to "X" when active */
+
+
+
+/* hover animation */
+
+.hamburger:hover .ham1  {
+   background: #5b5b5b;
+   width: 25px;
+}
+
+.hamburger:hover .ham2  {
+   background: #5b5b5b;
+   width: 34px;
+}
+
+.hamburger:hover .ham3  {
+   background: #5b5b5b;
+   width: 18px;
+}
+
+
+
+/* X animation */
 .hamburger.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-  width: 26px;
+  transform: translateY(9px) rotate(45deg);
+  width: 34px; /* match longest bar */
 }
 
 .hamburger.active span:nth-child(2) {
   opacity: 0;
-  width: 26px;
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-  width: 26px;
+  transform: translateY(-9px) rotate(-45deg);
+  width: 34px; /* match longest bar for symmetrical X */
 }
-
 @media (max-width: 650px) {
   .hero-title{
     font-size: 14vw;
@@ -485,8 +512,8 @@
 
 
       /* Footer */
-        .footer { 
-          
+          .footer { 
+           position: relative;
             bottom: 0;
             height: 300px;
             background: var(--bg-dark);
@@ -498,9 +525,12 @@
 
         .footer-scroll {
             width: 100%;
-            padding: 75px 0;
+            padding: 0;
             overflow: hidden;
+            position: absolute;
+            bottom: -4rem;
         }
+
 
         .footer-text {
             display: flex;
@@ -594,12 +624,28 @@
 
         .contact-con{
           padding: 10% 14%;
+          padding-bottom: 0 !important;
         }
 
             /* Contact */
         .contact-layout {
             display: flex;
             gap: 40px;
+        }
+
+        .help{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .help p{
+            padding: 3rem;
+            padding-top: 1rem;
+            font-weight: 600;
+            font-size: 30px;
+            color: #5b5b5b;
         }
 
         .contact-left {
@@ -610,7 +656,8 @@
         }
 
         .contact-intro {
-            font-size: 28px;
+            font-size: 22px;
+            line-height: 1.8rem;
             line-height: 1.2;
         }
 
@@ -742,12 +789,19 @@
         }
 
         .men-p p{
-           font-size: 16px;
-            color: #b5b5b5;
+           font-size: 22px;
+            color: #ffffff;
             line-height: 1.8;
           margin-bottom: 3rem;
+          font-weight: 400;
         }
 
+
+               .section {
+            max-width: 928px;
+            margin: 0 auto;
+            padding: 70px 18px;
+        }
         
 
         .men-cards{
@@ -764,6 +818,12 @@
           color: #fff;
           border-radius: 0.8rem;
           width: 45%;
+        }
+
+        .men-card h2{
+            font-family: 'DM Sans', sans-serif !important;
+            font-weight: 500;
+            margin-bottom: 1rem;
         }
 
 
@@ -810,9 +870,9 @@
    <nav class="nav-wrapper">
   <div class="nav-container">
     <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span class="ham1"></span>
+      <span class="ham2"></span>
+      <span class="ham3"></span>
     </div>
 
     <div class="nav-menu">
@@ -821,14 +881,13 @@
       <a href="photography.html">Photography</a>
       <a href="mentorship.html">Mentorship</a>
       <a href="writing.html">Writing</a>
-      <a href="contact.html">Contact</a>
     </div>
   </div>
 </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1 id="heading" class="heading hero-title">Mentorship</h1>
+        <h1 id="heading" class="heading hero-title">MENTORSHIP</h1>
         
         <div class="hero-star">
             <svg viewBox="0 0 48 48" style="width: 100%; height: 100%;">
@@ -852,6 +911,8 @@ Over the years, I’ve had the privilege of guiding young engineers, product thi
    </p>
 
 </div>
+
+<div class="help"><p>Here's how I can help</p></div>
 
 <div class="men-cards">
   <div class="men-card">
@@ -882,9 +943,9 @@ Over the years, I’ve had the privilege of guiding young engineers, product thi
         <div class="contact-layout">
             <div class="contact-left">
                 <p class="contact-intro ">
-                  Reach out - I’m always open to new conversations
+                 Looking to start a project or you need consultation? Feel free to contact me.
                 </p>
-                <p class="contact-intro-tiny">Located in the UK</p>
+                <!-- <p class="contact-intro-tiny">Located in the UK</p> -->
                 <a style="color: var(--card-blue); text-decoration: none; font-size: 22px;" href="mailto:me@johnojetunde.com">me@johnojetunde.com</a>
             </div>
 
